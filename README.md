@@ -23,10 +23,10 @@ Processing steps:
 
 ### Transformation
 Using the "Magnetic_transformation" notebook all students data will be combined into one dataframe. Some synthetic data showing how transformations should work will be included.
-Which will be used for:
+This notebook includes:
 - Interpolation (linear spline, nearest neighbor)   
 - Map visualization   
-- Tranformation (upward continuation and reduce to pole)
+- Data tranformations (upward continuation and reduce to pole)
 - Profile extraction
 
 ### Modeling and Inversion
@@ -34,5 +34,5 @@ In this part students will use the profile-data they extracted in the transforma
 Includes:
 - Magnetic sphere anomaly formula
 - Effect of inclination and profile orientation
-- Fitting sphere to measured profile data
+- Fitting sphere to measured/interpolated profile data
 
