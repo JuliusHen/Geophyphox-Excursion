@@ -1,4 +1,5 @@
 /*
+  Modified from:
   MLX90393 Magnetometer Example Code
   By: Nathan Seidle
   SparkFun Electronics
@@ -47,9 +48,9 @@ void loop()
 
 
   float T_C[3][3]
-  { {  -1.10318387e-03,  1.65040045e-01, -3.99251127e+00},
-    {     4.26082971e-04, -4.75875583e-01,  1.39796128e+01},
-    {   -1.45040322e-03, -1.52003606e-01,  5.86652956e+00}
+  { {   -1.10318387e-03,  1.65040045e-01, -3.37251127e+00},
+    {    4.26082971e-04, -4.75875583e-01,  1.18696128e+01},
+    {   -1.45040322e-03, -1.52003606e-01,  4.44652956e+00}
   };
   float Mxyz_final[3];
 
@@ -86,8 +87,7 @@ void loop()
   M_abs_final   = sqrt(sq(Mxyz_final[0]) + sq(Mxyz_final[1]) + sq(Mxyz_final[2]));
   
   float heading = atan2(Mxyz_final[1],Mxyz_final[0]);
-  float declinationAngle = 0.04380776; // Cairns magnetic declination. 6°41’ east.
-  heading += declinationAngle;
+  float declinationAngle = 0.044907322; //  magnetic declination. 2°57’ east.  heading += declinationAngle;
   
   // Correct for when signs are reversed.
   if (heading < 0) {
@@ -106,5 +106,5 @@ void loop()
 
 
   PhyphoxBLE::write(Mxyz_final[0],  Mxyz_final[1], Mxyz_final[2], M_abs_final, headingDegrees);
-  delay(150);
+  delay(10);
 }

@@ -47,9 +47,9 @@ void loop()
 
 
   float T_C[3][3]
-  { { -1.60305272e-03,  1.81750187e-01, -3.88712992e+00},
-    {    1.20618281e-03, -5.10414880e-01,  1.40412705e+01},
-    { -8.56495399e-04, -1.98148504e-01,  6.43997339e+00 }
+  { { -1.60305272e-03,  1.81750187e-01, -3.32712992e+00},
+    {    1.20618281e-03, -5.10414880e-01,  1.05212705e+01},
+    { -8.56495399e-04, -1.98148504e-01,  5.09997339e+00 }
   };
   float Mxyz_final[3];
 
@@ -86,7 +86,7 @@ void loop()
   M_abs_final   = sqrt(sq(Mxyz_final[0]) + sq(Mxyz_final[1]) + sq(Mxyz_final[2]));
   
   float heading = atan2(Mxyz_final[1],Mxyz_final[0]);
-  float declinationAngle = 0.04380776; // Cairns magnetic declination. 6°41’ east.
+  float declinationAngle = 0.044907322; //  magnetic declination. 2°57’ east.
   heading += declinationAngle;
   
   // Correct for when signs are reversed.
@@ -106,5 +106,5 @@ void loop()
 
 
   PhyphoxBLE::write(Mxyz_final[0],  Mxyz_final[1], Mxyz_final[2], M_abs_final, headingDegrees);
-  delay(150);
+  delay(10);
 }
