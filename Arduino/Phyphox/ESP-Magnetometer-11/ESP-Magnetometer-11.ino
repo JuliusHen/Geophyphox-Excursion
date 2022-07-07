@@ -25,7 +25,7 @@ MLX90393::txyz data; //Create a structure, called data, of four floats (t, x, y,
 
 void setup()
 { 
-  PhyphoxBLE::start("ESP32-Magnetometer-11");
+  PhyphoxBLE::start("Magnetometer-11");
   Serial.begin(9600);
 
 
