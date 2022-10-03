@@ -1,18 +1,18 @@
 /*
+  Modified from:
   MLX90393 Magnetometer Example Code
   By: Nathan Seidle
   SparkFun Electronics
   Date: February 6th, 2017
   License: This code is public domain but you buy me a beer if you use this and we meet someday (Beerware license).
   Read the mag fields on three XYZ axis
-  Hardware Connections (Breakoutboard to Arduino):
+  Hardware Connections (Breakoutboard to ESP32):
   3.3V = 3.3V
   GND = GND
-  SDA = A4
-  SCL = A5
+  SDA = D21
+  SCL = D22 
   Serial.print it out at 9600 baud to serial monitor.
 */
-
 #include <Wire.h>
 #include <MLX90393.h> //From https://github.com/tedyapo/arduino-MLX90393 by Theodore Yapo
 #include "BluetoothSerial.h" 
@@ -32,15 +32,12 @@ void setup()
   mlx.setResolution(0, 0, 0); //x, y, z
   mlx.setOverSampling(3);
   mlx.setDigitalFiltering(7);
- /*
-  mlx.setTemperatureCompensation(3);
-  mlx.setOffsets(32768,32768,32768);
- */
+
 }
 void loop()
 {
   mlx.readData(data); //Read the values from the sensor
-  ESP_BT.begin("Magnetometer-Calibration_X");
+  ESP_BT.begin("Magnetometer-Calibration_X"); //Bluetooth
 
   float Mxyz[3];
   float M_abs;
@@ -50,7 +47,7 @@ void loop()
   Mxyz[1] = data.y;
   Mxyz[2] = data.z;
   T       = data.t;
-
+// send values to Bluetooth device
   ESP_BT.print(Mxyz[0]);
   ESP_BT.print(" ");
   ESP_BT.print(Mxyz[1]);
@@ -58,7 +55,7 @@ void loop()
   ESP_BT.print(Mxyz[2]); 
   ESP_BT.print(" ");
   ESP_BT.print(T); 
-  ESP_BT.println();
+  ESP_BT.println(); 
 
   delay(10);
 }

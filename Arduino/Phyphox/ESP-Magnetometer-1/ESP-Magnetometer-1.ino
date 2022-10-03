@@ -6,14 +6,13 @@
   Date: February 6th, 2017
   License: This code is public domain but you buy me a beer if you use this and we meet someday (Beerware license).
   Read the mag fields on three XYZ axis
-  Hardware Connections (Breakoutboard to Arduino):
+  Hardware Connections (Breakoutboard to ESP32):
   3.3V = 3.3V
   GND = GND
-  SDA = A4
-  SCL = A5z
+  SDA = D21
+  SCL = D22 
   Serial.print it out at 9600 baud to serial monitor.
 */
-
 #include <Wire.h>
 #include <MLX90393.h> //From https://github.com/tedyapo/arduino-MLX90393 by Theodore Yapo
 #include <phyphoxBle.h>

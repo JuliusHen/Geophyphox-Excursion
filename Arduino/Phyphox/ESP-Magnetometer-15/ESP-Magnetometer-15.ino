@@ -1,15 +1,16 @@
 /*
+  Modified from:
   MLX90393 Magnetometer Example Code
   By: Nathan Seidle
   SparkFun Electronics
   Date: February 6th, 2017
   License: This code is public domain but you buy me a beer if you use this and we meet someday (Beerware license).
   Read the mag fields on three XYZ axis
-  Hardware Connections (Breakoutboard to Arduino):
+  Hardware Connections (Breakoutboard to ESP32):
   3.3V = 3.3V
   GND = GND
-  SDA = A4
-  SCL = A5
+  SDA = D21
+  SCL = D22 
   Serial.print it out at 9600 baud to serial monitor.
 */
 
